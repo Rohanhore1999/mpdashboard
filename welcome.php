@@ -5,6 +5,7 @@ if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin']!=true){
   exit;
 }
 ?>
+ <!-- comment added -->
 <!doctype html>
 <html lang="eng" >
   <head>
