@@ -6,7 +6,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
  $Username = $_POST["Username"];
  $password = $_POST["password"];
  
- 
+ //comment added by sauvik
   $sql = "select * from users where Username='$Username' AND password='$password'";
 
   $result = mysqli_query($conn, $sql);
