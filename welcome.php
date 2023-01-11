@@ -93,10 +93,10 @@ $results1 = mysqli_query($conn, $Date);
 // $num = mysqli_num_rows($result);
 
   // $row = mysqli_fetch_assoc($result);
-  $var1= $_POST['Date'];
+  // $var1= $_POST['Date'];
   // print_r($var1);
 
-  $var2 =$_POST['date'];
+  // $var2 =$_POST['date'];
   // print_r($var2);
   //  var_dump($rows);
   // $demand= var_dump($rows);
@@ -117,31 +117,11 @@ $results1 = mysqli_query($conn, $Date);
 ?>
 <label>
   <form action="<?php  $_SERVER['PHP_SELF'] ;?>" method="post">
-  <select name="Date" id="Date" >
-    <option>- From Date-</option>
-    <?php while($rows = mysqli_fetch_array($results)) {?>
-      <option value="<?php echo $rows['Date']; ?>"><?php echo $rows['Date']; ?></option>
-      <?php 
-      }
-       ?>
-  </select>
-  <!-- <script type="text/javascript">
-  document.getElementById('Date').value = "<?php echo $_GET['Date'];?>";
- </script> -->
-  
-
-  <select name="date" id="date">
-    <option>- To Date-</option>
-    <?php while($rows = mysqli_fetch_array($results1)) {?>
-      <option value="<?php echo $rows['Date']; ?>"><?php echo $rows['Date']; ?></option>
-      <?php 
-      }
-       ?>
-       </select>
+  <!--  -->
        <!-- <script type="text/javascript">
        document.getElementById('date').value = "<?php echo $_GET['date'];?>";
        </script>      -->
-       <input type="submit" name="submit" value="Filter">
+       <!-- <input type="submit" name="submit" value="Filter"> -->
    <!-- <input type="submit" name="submit" value="submit"/> -->
     
     </form> 
@@ -174,24 +154,24 @@ $results1 = mysqli_query($conn, $Date);
      *
      * @return response()
      */
-    function getBetweenDates($startDate, $endDate)
-    {
-        $rangArray = [];
+    // function getBetweenDates($startDate, $endDate)
+    // {
+    //     $rangArray = [];
             
-        $startDate = strtotime($startDate);
-        $endDate = strtotime($endDate);
+    //     $startDate = strtotime($startDate);
+    //     $endDate = strtotime($endDate);
              
-        for ($currentDate = $startDate; $currentDate <= $endDate; 
-                                        $currentDate += (86400)) {
+    //     for ($currentDate = $startDate; $currentDate <= $endDate; 
+    //                                     $currentDate += (86400)) {
                                                 
-            $date = date('Y-m-d', $currentDate);
-            $rangArray[] = $date;
-        }
+    //         $date = date('Y-m-d', $currentDate);
+    //         $rangArray[] = $date;
+    //     }
   
-        return $rangArray;
-    }
+    //     return $rangArray;
+    // }
   
-    $dates = getBetweenDates($var1, $var2);
+    // $dates = getBetweenDates($var1, $var2);
 
     
      
@@ -223,26 +203,26 @@ $results1 = mysqli_query($conn, $Date);
     'cornflowerblue', 'royalblue', 'blue', 'darkblue', 'navy', 'midnightblue', 'burlywood', 'tan', 'rosybrown',
     'sandybrown', 'goldenrod', 'darkgoldenrod', 'peru', 'chocolate', 'saddlebrown', 'sienna', 'brown', 'maroon',
     'aliceblue', 'darkgray', 'darkslategray', 'black');
-    $datasets=[];
-    foreach ($dates as $value){
-    $sql="SELECT block1, block2,	block3,	block4,	block5,	block6,	block7,	block8,	block9,	block10,	block11,	block12,	block13,	block14,	block15,	block16,	block17,	block18,	block19,	block20,	block21,	block22,	block23,	block24,	block25,	block26,	block27,	block28,	block29,	block30,	block31,	block32,	block33,	block34,	block35,	block36,	block37,	block38,	block39,	block40,	block41,	block42,	block43,	block44,	block45,	block46,	block47,	block48,	block49,	block50,	block51,	block52,	block53,	block54,	block55,	block56,	block57,	block58,	block59,	block60,	block61,	block62,	block63,	block64,	block65,	block66,	block67,	block68,	block69,	block70,	block71,	block72,	block73,	block74,	block75,	block76,	block77,	block78,	block79,	block80,	block81,	block82, block83,	block84,	block85,	block86,	block87,	block88,	block89,	block90,	block91,	block92,	block93,	block94,	block95,	block96
-    FROM `demand_table` WHERE Date= '".$value."'";
-     $result = $conn->query($sql);
-     $row = mysqli_fetch_assoc($result);
-     $reCreateArray = array_values($row);
-     array_unshift($reCreateArray, "");
-     unset($reCreateArray[0]);
-     $color=$colors[array_rand($colors)];
-    //  print_r( $row); 
-    //  print_r( $value)
-    $datasets[] = array(
+  //   $datasets=[];
+  //   foreach ($dates as $value){
+  //   $sql="SELECT block1, block2,	block3,	block4,	block5,	block6,	block7,	block8,	block9,	block10,	block11,	block12,	block13,	block14,	block15,	block16,	block17,	block18,	block19,	block20,	block21,	block22,	block23,	block24,	block25,	block26,	block27,	block28,	block29,	block30,	block31,	block32,	block33,	block34,	block35,	block36,	block37,	block38,	block39,	block40,	block41,	block42,	block43,	block44,	block45,	block46,	block47,	block48,	block49,	block50,	block51,	block52,	block53,	block54,	block55,	block56,	block57,	block58,	block59,	block60,	block61,	block62,	block63,	block64,	block65,	block66,	block67,	block68,	block69,	block70,	block71,	block72,	block73,	block74,	block75,	block76,	block77,	block78,	block79,	block80,	block81,	block82, block83,	block84,	block85,	block86,	block87,	block88,	block89,	block90,	block91,	block92,	block93,	block94,	block95,	block96
+  //   FROM `demand_table` WHERE Date= '".$value."'";
+  //    $result = $conn->query($sql);
+  //    $row = mysqli_fetch_assoc($result);
+  //    $reCreateArray = array_values($row);
+  //    array_unshift($reCreateArray, "");
+  //    unset($reCreateArray[0]);
+  //    $color=$colors[array_rand($colors)];
+  //   //  print_r( $row); 
+  //   //  print_r( $value)
+  //   $datasets[] = array(
       
-        "name"=> $value,
-        "data"=> $reCreateArray ,
+  //       "name"=> $value,
+  //       "data"=> $reCreateArray ,
         
-    );
+  //   );
 
-  }
+  // }
     //  array_push(
     //   $datasets,array(
     //  "label"=> $value,
@@ -296,7 +276,7 @@ $results1 = mysqli_query($conn, $Date);
       <div class="card-body">
       <div id="myChart"></div>
       <!-- <canvas id="myChart" width="900" height="350"></canvas> -->
-      
+      <iframe src="https://mercadosemi-in-1.domo.com/embed/card/private/WnPEx" width="1270" height=350" marginheight="1" marginwidth="1" frameborder="1"></iframe>
   
       
   </div>
@@ -304,7 +284,7 @@ $results1 = mysqli_query($conn, $Date);
   </div>
   
   </div>
-  <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+  <!-- <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script> -->
    
   <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> -->
   <style>
@@ -316,152 +296,7 @@ $results1 = mysqli_query($conn, $Date);
   </style>
       <script>
         // const ctx = document.getElementById('myChart').getContext('2d');
-        var chartdata= <?php echo json_encode($datasets);  ?>;
-        var dates= <?php echo json_encode(array_column($datasets,'name'));  ?>;
-        var dem_data= <?php echo json_encode(array_column($datasets,'data'));  ?>;
-        console.log ("dem_data",dem_data);
-        let demand= []
-        let blocks=[]
-        for (let i = 0 ; i < dem_data.length; i++){
-          var dem_vals= Object.values(dem_data[i])
-          demand= demand.concat(dem_vals)
-          var dem_blocks= Object.keys(dem_data[i])
-          blocks=blocks.concat(dem_blocks)
-        }
-        console.log ("demand",demand);
-        console.log ("demand",blocks);
-        console.log ("dem_vals",dem_vals);
-     
         
-        console.log ("dates",dates);
-        console.log ("dem_data",dem_data);
-        console.log ("chartdata",chartdata);
-        
-        
-        
-        var chartblocks=Object.keys(chartdata[0]['data']);
-        
-        // console.log ("chartdemandvalues", chartdemand_vals)
-
-        console.log ("chartblocks",chartblocks)
-        // console.log ("chartdata",Object.values(chartdata))
-
-        var options = {
-        chart: {
-        type: "line",
-        height: 300,
-        stacked: false,
-        fillOpacity: .3,
-        },
-  series: [{
-    name: dates,
-    data: demand,
-        }],
-  xaxis: {
-          categories: blocks,
-          showDuplicates: true,
-          axisTicks: {
-        show: true
-      },
-          labels: {
-    formatter: function (value) {
-      if (value % 4 == 0){
-        return value ; 
-      }
-      return ""
-    }}
-  },
-  stroke: {
-    width: [1.5, 1.5,1.5,1.5]
-  },
-  yaxis: {
-  labels: {
-    formatter: function (value) {
-      return value + "";
-    }
-  },
-},
-
-
-}
-
-
-
-var chart = new ApexCharts(document.querySelector("#myChart"), options);
-
-chart.render();
-      
-        // var options = {
-        //   series: [{
-        //     name: "$dates",
-        //     data: chartdemand_vals,
-        // }],
-        //   chart: {
-        //   type: 'line',
-        //   zoom: {
-        //     enabled: false
-        //   }
-        // },
-        // dataLabels: {
-        //   enabled: false
-        // },
-        // stroke: {
-        //   curve: 'straight'
-        // },
-        // title: {
-        //   text: 'Product Trends by Month',
-        //   align: 'left'
-        // },
-        // grid: {
-        //   row: {
-        //     colors: ['#f3f3f3', 'transparent'], // takes an array which will be repeated on columns
-        //     opacity: 0.5
-        //   },
-        // },
-        // xaxis: {
-        //   categories: chartblocks,
-        // }
-        // };
-
-        // var chart = new ApexCharts(document.querySelector("myChart"), options);
-        // chart.render();
-        
-//         const myChart = new Chart(ctx, {
-//         type: 'line',
-//         data: {
-//         labels: chartblocks,
-//         datasets:chartdemand_vals,
-//     },
-//     options: {
-//       responsive: true,
-//       // maintainAspectRatio: true,
-//       legend: {
-//         position: "top"
-//       },
-//       title: {
-//         position: "top",
-//         display: true
-//       },
-//       tooltips: {
-//         mode: "index",
-//         intersect: false
-//       },
-       
-//       elements: {
-//         point: {
-//           radius: 0,
-//           hoverRadius: 0
-//         }
-//       },
-//       interaction: {
-//         Mode: "nearest",
-//         axis: "xy",
-//         intersect: false
-//       },
-//     }
-// });
-
-      </script>
 
 
 
